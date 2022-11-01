@@ -7,7 +7,6 @@ webhook = "https://discord.com/api/webhooks/0000000000000000000/XXXXXXXXXXXXXXXX
 streamers = ["xqc", "jakenbakelive"]
 # check stream every 60 sec
 delay = 60
-
 def discord(msg):
     if(webhook == None):
         print("[discord] incorrect webhook")
@@ -40,16 +39,18 @@ class Stream():
         try:
             self.id = stream["id"]
             self.title = stream["title"]
+            self.createAt = stream["createdAt"]
             self.gameName = stream["game"]["name"]
         except (AttributeError, KeyError, TypeError):
             self.id = None
             self.title = None
+            self.createAt = None
             self.gameName = None
     
     def __eq__(self, __o: object) -> bool:
         if(__o == None):
-            return self.id == None and self.title == None and self.gameName == None
-        return self.id == __o.id and self.title == __o.title and self.gameName == __o.gameName
+            return self.id == None and self.title == None and self.createAt == None and self.gameName == None
+        return self.id == __o.id and self.title == __o.title and self.createAt == __o.createAt and self.gameName == __o.gameName
 
 def getUserData(displayName) -> User:
     headers = {
@@ -62,6 +63,7 @@ def getUserData(displayName) -> User:
             displayName 
             stream { 
                 id 
+                createdAt 
                 title 
                 game { 
                     name 
