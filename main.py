@@ -7,6 +7,7 @@ webhook = "https://discord.com/api/webhooks/0000000000000000000/XXXXXXXXXXXXXXXX
 streamers = ["xqc", "jakenbakelive"]
 # check stream every 60 sec
 delay = 60
+
 def discord(msg):
     if(webhook == None):
         print("[discord] incorrect webhook")
