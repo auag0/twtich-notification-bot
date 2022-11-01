@@ -91,4 +91,4 @@ def checkStreamer(streamer):
 while True:
     for streamer in streamers:
         checkStreamer(streamer)
-    time.sleep(60)
+    time.sleep(delay)
