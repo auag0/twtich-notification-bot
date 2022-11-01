@@ -1,1 +1,1 @@
-notification discord when changes to title or game
+notification to discord when changes to title or game
